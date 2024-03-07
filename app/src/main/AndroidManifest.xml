@@ -21,6 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Add the following in the AndroidManifest.xml file -->
+        <activity android:name=".HomeActivity" />
+
+        <!-- Modify your existing code in MainActivity.xml -->
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/your_button_color"
+            android:text="Login"
+            android:textSize="18sp"
+            app:cornerRadius="20dp"
+            android:onClick="onLoginButtonClick" />
     </application>
 
 </manifest>

@@ -1,7 +1,7 @@
 package com.example.studysync2
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -25,7 +25,8 @@ class MainActivity : AppCompatActivity() {
             val enteredPassword = password.text.toString()
 
             if (isValidLogin(enteredUsername, enteredPassword)) {
-                showToast("Login Successful!")
+                // If login is successful, navigate to MainActivity2
+                navigateToMainActivity2()
             } else {
                 showToast("Login Failed!")
             }
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
     private fun showToast(message: String) {
         Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
     }
+
+    private fun navigateToMainActivity2() {
+        // Replace MainActivity2::class.java with the actual class of MainActivity2
+        val intent = Intent(this, MainActivity2::class.java)
+        startActivity(intent)
+    }
 }
-
-

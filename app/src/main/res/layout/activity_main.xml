@@ -75,30 +75,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <RelativeLayout
-        android:background="@drawable/logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!-- CheckBox for "Remember me" -->
-        <CheckBox
-            android:id="@+id/rememberMeCheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Remember me"
-            android:layout_centerVertical="true"
-            android:alpha="0.7"/>
-
-        <TextView
-            android:id="@+id/forgotPasswordTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="I forgot my password"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"/>
-
-    </RelativeLayout>
-
     <View
         android:layout_width="wrap_content"
         android:layout_height="10dp"/>
