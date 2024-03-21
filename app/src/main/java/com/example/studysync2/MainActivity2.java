@@ -1,6 +1,3 @@
-// MainActivity2.java
-package com.example.studysync2;
-
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +7,9 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.studysync2.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -17,8 +17,10 @@ public class MainActivity2 extends AppCompatActivity {
 
     private TextView selectedDateTextView;
     private EditText appointmentDetailsEditText;
-    private Button scheduleButton;
     private CalendarView calendarView;
+    private Button scheduleButton;
+    private Button feedbackButton; // Add feedback button
+    private EditText feedbackEditText; // Add feedback EditText
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +31,10 @@ public class MainActivity2 extends AppCompatActivity {
         appointmentDetailsEditText = findViewById(R.id.appointmentDetailsEditText);
         scheduleButton = findViewById(R.id.scheduleButton);
         calendarView = findViewById(R.id.calendarView);
+
+        // Find feedback related views
+        feedbackButton = findViewById(R.id.feedbackButton);
+        feedbackEditText = findViewById(R.id.feedbackEditText);
 
         // Set the current date as the default selected date
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -51,6 +57,14 @@ public class MainActivity2 extends AppCompatActivity {
                 scheduleAppointment();
             }
         });
+
+        // Handle feedback button click
+        feedbackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendFeedback();
+            }
+        });
     }
 
     private void scheduleAppointment() {
@@ -62,5 +76,13 @@ public class MainActivity2 extends AppCompatActivity {
         // For demonstration purposes, just show a toast with the scheduling information
         String message = "Appointment Scheduled!\nDate: " + selectedDate + "\nDetails: " + appointmentDetails;
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    private void sendFeedback() {
+        String feedback = feedbackEditText.getText().toString();
+        // You can implement the logic to send feedback to the system here
+
+        // For demonstration purposes, just show a toast with the feedback
+        Toast.makeText(this, "Feedback sent: " + feedback, Toast.LENGTH_LONG).show();
     }
 }

@@ -34,9 +34,27 @@
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/scheduleButton"
         android:layout_marginTop="16dp"/>
 
+    <!-- Feedback EditText -->
+    <EditText
+        android:id="@+id/feedbackEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Feedback"
+        android:layout_below="@id/calendarView"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Feedback Button -->
+    <Button
+        android:id="@+id/feedbackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit Feedback"
+        android:layout_below="@id/feedbackEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
 </RelativeLayout>
-    straintLayout>
