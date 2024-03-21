@@ -1,3 +1,4 @@
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.studysync2.AddAppointmentActivity;
 import com.example.studysync2.R;
 
 import java.text.SimpleDateFormat;
@@ -21,6 +23,7 @@ public class MainActivity2 extends AppCompatActivity {
     private Button scheduleButton;
     private Button feedbackButton; // Add feedback button
     private EditText feedbackEditText; // Add feedback EditText
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,6 +69,36 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
     }
+
+
+// Handle scheduling button click
+
+    scheduleButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            // Start AddAppointmentActivity with the selected date
+            String selectedDate = selectedDateTextView.getText().toString();
+            Intent intent = new Intent(MainActivity2.this, AddAppointmentActivity.class);
+            intent.putExtra("selectedDate", selectedDate);
+            startActivity(intent);
+        }
+    });
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 123 && resultCode == RESULT_OK) {
+            // Handle the result returned from AddAppointmentActivity
+            if (data != null) {
+                String selectedDate = data.getStringExtra("selectedDate");
+                String topic = data.getStringExtra("topic");
+                String classCode = data.getStringExtra("classCode");
+                String time = data.getStringExtra("time");
+                String location = data.getStringExtra("location");
+            }
+        }
+    }
+
+
 
     private void scheduleAppointment() {
         String selectedDate = selectedDateTextView.getText().toString();
